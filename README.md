@@ -44,6 +44,40 @@ function App() {
 | `md` | Medium      |
 | `lg` | Large       |
 
+## 🎨 Customization (Ranglarni sozlash)
+
+Ushbu kutubxona Tailwind CSS ranglaridan foydalanadi. Tugma ranglarini o'zgartirish uchun loyihangizdagi `tailwind.config.js` fayliga quyidagi ranglarni qo'shing:
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        // Asosiy ranglar (Primary)
+        primary: {
+          DEFAULT: '#3b82f6', // Tugma foni
+          foreground: '#ffffff', // Matn rangi
+        },
+        // Ikkinchi darajali (Secondary)
+        secondary: {
+          DEFAULT: '#f3f4f6',
+          foreground: '#111827',
+        },
+        // Accent va Borderlar
+        accent: {
+          DEFAULT: '#f9fafb',
+          foreground: '#111827',
+        },
+        input: '#e5e7eb',
+        ring: '#3b82f6',
+        background: '#ffffff',
+      }
+    }
+  }
+}
+```
+
 ## 🧩 Props
 
 | Prop        | Type                                      | Default     | Description                      |

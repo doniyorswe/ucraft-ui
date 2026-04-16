@@ -4,12 +4,14 @@ import tailwindcss from '@tailwindcss/vite'
 import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    dts({ insertTypesEntry: true }),
+    dts({ 
+      tsconfigPath: './tsconfig.app.json',
+      insertTypesEntry: true,
+    }),
   ],
   build: {
     lib: {

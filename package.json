@@ -4,22 +4,19 @@
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build:types": "tsc -b",
+    "build": "tsc --noEmit && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "release": "npm version patch && npm run build:types && npm publish"
+    "dev": "vite"
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.5.0",
-    "ucraft-ui": "0.0.3"
+    "tailwind-merge": "^3.5.0"
   },
   "peerDependencies": {
     "react": ">=18",

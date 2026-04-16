@@ -72,15 +72,3 @@ storybook-static/
 
 tmp/
 temp/
-
-# NPM publishdan oldin ignore qilinadiganlar
-
-src/
-tests/
-**tests**/
-*.test.ts
-*.test.tsx
-*.spec.ts
-*.spec.tsx
-
-# (agar library build qilib publish qilsang faqat dist qoladi)

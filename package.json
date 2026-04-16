@@ -1,6 +1,6 @@
 {
   "name": "ucraft-ui",
-  "version": "0.0.4",
+  "version": "0.0.3",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.es.js",
@@ -11,9 +11,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:types": "tsc -b",
     "lint": "eslint .",
     "preview": "vite preview",
-    "release": "npm version patch && npm run build && npm publish"
+    "release": "npm version patch && npm run build:types && npm publish"
   },
   "dependencies": {
     "clsx": "^2.1.1",

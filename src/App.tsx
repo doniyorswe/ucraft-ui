@@ -1,4 +1,4 @@
-import { Button } from "ucraft-ui";
+import { Button } from "./components";
 
 const App = () => {
   return (

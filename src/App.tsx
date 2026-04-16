@@ -1,21 +1,42 @@
-function App() {
-  return (
-    <div className="min-h-screen bg-gray-50 p-8 space-y-12">
-      <header className="max-w-4xl mx-auto border-b pb-4">
-        <h1 className="text-3xl font-bold text-gray-900">
-          UI Library Components
-        </h1>
-      </header>
+import { Button } from "ucraft-ui";
 
-      <main className="max-w-4xl mx-auto space-y-12">
-        {/* Buttons Section */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-gray-800">Buttons</h2>
-          <div className="space-y-4"></div>
-        </section>
-      </main>
+const App = () => {
+  return (
+    <div className="p-10 space-y-4">
+      <h1 className="text-2xl font-bold">Button Examples</h1>
+
+      <div className="flex gap-4">
+        <Button variant="primary" size="sm">
+          Primary SM
+        </Button>
+        <Button variant="primary" size="md">
+          Primary MD
+        </Button>
+        <Button variant="primary" size="lg">
+          Primary LG
+        </Button>
+      </div>
+
+      <div className="flex gap-4">
+        <Button variant="secondary" size="md">
+          Secondary
+        </Button>
+        <Button variant="outline" size="md">
+          Outline
+        </Button>
+        <Button disabled size="md">
+          Disabled
+        </Button>
+      </div>
+
+      <Button
+        className="bg-purple-600 hover:bg-purple-700"
+        onClick={() => alert("Clicked!")}
+      >
+        Custom Class
+      </Button>
     </div>
   );
-}
+};
 
 export default App;

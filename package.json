@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.5.0"
+    "tailwind-merge": "^3.5.0",
+    "ucraft-ui": "^0.0.7"
   },
   "peerDependencies": {
     "react": ">=18",

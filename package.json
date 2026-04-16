@@ -12,7 +12,8 @@
     "build": "tsc --noEmit && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "dev": "vite"
+    "dev": "vite",
+    "release": "npm version patch && npm run build && npm publish"
   },
   "dependencies": {
     "clsx": "^2.1.1",

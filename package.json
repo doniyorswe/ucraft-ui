@@ -13,10 +13,16 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "dev": "vite",
+    "format": "prettier --write .",
+    "prepare": "husky",
+    "lint-staged": "lint-staged --allow-empty",
     "release": "npm version patch && npm run build && npm publish"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "husky": "^9.1.7",
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwind-merge": "^3.5.0",
     "ucraft-ui": "^0.0.7"
   },
@@ -44,5 +50,13 @@
     "typescript-eslint": "^8.58.0",
     "vite": "^8.0.4",
     "vite-plugin-dts": "^4.5.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   }
 }

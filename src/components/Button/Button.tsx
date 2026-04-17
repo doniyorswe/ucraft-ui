@@ -22,11 +22,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       lg: "h-9 px-6 text-lg rounded-lg",
     };
 
+    const baseClasses =
+      "inline-flex items-center justify-center transition-colors disabled:cursor-not-allowed";
+
     return (
       <button
         ref={ref}
         className={twMerge(
-          "inline-flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed",
+          baseClasses,
           variants[variant],
           sizes[size],
           className,

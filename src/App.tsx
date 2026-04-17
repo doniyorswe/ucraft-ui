@@ -1,10 +1,17 @@
-import { Button } from "./components";
+import { Button } from "./components/Button";
+import { Input } from "./components/Input";
 
 const App = () => {
   return (
     <div className="p-10 space-y-4">
-      <h1 className="text-2xl font-bold">Button Examples</h1>
+      <h1 className="text-2xl font-bold">Input Examples</h1>
+      <div className="flex gap-4">
+        <Input placeholder="Placeholder..." size="sm" />
+        <Input placeholder="Placeholder..." size="md" />
+        <Input placeholder="Placeholder..." size="lg" />
+      </div>
 
+      <h1 className="text-2xl font-bold">Button Examples</h1>
       <div className="flex gap-4">
         <Button variant="primary" size="sm">
           Primary SM

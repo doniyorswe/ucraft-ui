@@ -3,10 +3,21 @@ import { twMerge } from 'tailwind-merge';
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
+  loading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', ...props }, ref) => {
+  (
+    {
+      className,
+      variant = 'primary',
+      size = 'md',
+      loading,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
     const variants = {
       primary:
         'bg-primary text-primary-foreground hover:opacity-90 active:opacity-80 disabled:opacity-50',
@@ -35,6 +46,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         {...props}
+        disabled={loading || disabled}
       />
     );
   }

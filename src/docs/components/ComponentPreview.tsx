@@ -25,7 +25,7 @@ export const ComponentPreview = ({ children, code, title }: ComponentPreviewProp
           </button>
         </div>
       )}
-      <div className="p-8 bg-grid-slate-100 flex items-center justify-center min-h-[150px]">
+      <div className="p-8 bg-grid-slate-100 flex items-center justify-center min-h-37.5">
         {!showCode ? children : <div className="w-full"><CodeBlock code={code} /></div>}
       </div>
     </div>

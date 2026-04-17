@@ -46,6 +46,15 @@ export const Sidebar = () => {
           </NavLink>
         ))}
       </nav>
+
+      <div className="flex items-center gap-4 px-12 py-4 border-t border-gray-200 absolute bottom-0 left-0 right-0">
+        <a href="https://github.com/doniyorswe/ucraft-ui" target="_blank" rel="noopener noreferrer">
+          <img src='https://img.shields.io/github/stars/doniyorswe/ucraft-ui'/>
+        </a>
+        <a href="https://www.npmjs.com/package/ucraft-ui" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.shields.io/npm/v/ucraft-ui" />
+        </a>
+      </div>
     </div>
   );
 };

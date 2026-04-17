@@ -20,6 +20,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       checked: controlledChecked,
       defaultChecked = false,
       size = 'md',
+      className,
       ...props
     }: CheckboxProps,
     ref
@@ -53,22 +54,19 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           wrapperProps?.className
         )}
       >
-        <input
-          type='checkbox'
-          checked={checked}
-          onChange={handleChange}
-          className='h-0 w-0 overflow-hidden'
-          ref={ref}
-          {...props}
-        />
         <span
           className={twMerge(
             'relative inline-flex items-center justify-center rounded-sm border transition-all duration-200 ease-in-out',
             sizes[size],
             checked
               ? 'border-primary bg-primary'
-              : 'border-gray-300 bg-white hover:border-gray-400'
+              : 'border-gray-300 bg-white hover:border-gray-400',
+            className
           )}
+          role='checkbox'
+          aria-checked={checked}
+          aria-disabled={props.disabled}
+          aria-label={label}
         >
           <span
             className={twMerge(
@@ -92,6 +90,17 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           </span>
         </span>
         {label && <span className='select-none'>{label}</span>}
+
+        <input
+          type='checkbox'
+          checked={checked}
+          onChange={handleChange}
+          ref={ref}
+          {...props}
+          className='h-0 w-0 overflow-hidden'
+          aria-label={label}
+          title={label}
+        />
       </label>
     );
   }

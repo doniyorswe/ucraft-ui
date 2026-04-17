@@ -1,4 +1,4 @@
-import { Input } from 'ucraft-ui';
+import { Input } from '../../index';
 import { ComponentPreview } from '../components/ComponentPreview';
 
 const InputDoc = () => {

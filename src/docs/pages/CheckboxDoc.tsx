@@ -1,4 +1,4 @@
-import { Checkbox } from 'ucraft-ui';
+import { Checkbox } from '../../index';
 import { ComponentPreview } from '../components/ComponentPreview';
 
 const CheckboxDoc = () => {

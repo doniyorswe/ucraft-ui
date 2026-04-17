@@ -1,4 +1,4 @@
-import { Button } from 'ucraft-ui';
+import { Button } from '../../index';
 import { ComponentPreview } from '../components/ComponentPreview';
 
 const ButtonDoc = () => {

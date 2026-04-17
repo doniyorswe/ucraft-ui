@@ -10,6 +10,8 @@
   --color-input: var(--color-input);
   --color-ring: var(--color-ring);
   --color-background: var(--color-background);
+  --color-destructive: var(--color-destructive);
+  --color-destructive-foreground: var(--color-destructive-foreground);
 }
 
 :root {
@@ -22,4 +24,6 @@
   --color-input: #e5e7eb;
   --color-ring: #3b82f6;
   --color-background: #ffffff;
+  --color-destructive: #e53e3e;
+  --color-destructive-foreground: #ffffff;
 }

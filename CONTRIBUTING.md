@@ -2,11 +2,10 @@
 
 ## 🚀 Phase 1 — Foundation (once)
 
-- [ ] Project setup (Vite + React + TS)
-- [ ] Tailwind CSS o‘rnatildi
-- [ ] Folder structure tozalandi (components/, utils/)
-- [ ] `cn` (class merge utility) yozildi
-- [ ] Base types (size, variant) aniqlandi
+- [x] Project setup (Vite + React + TS)
+- [x] Tailwind CSS o‘rnatildi
+- [x] Folder structure tozalandi (components/, utils/)
+- [x] Base types (size, variant) aniqlandi
 
 ---
 
@@ -14,28 +13,28 @@
 
 ### 🔘 Button
 
-- [ ] Props interface yozildi
-- [ ] Variants (primary, secondary, outline)
-- [ ] Sizes (sm, md, lg)
-- [ ] Disabled state
-- [ ] Loading state
-- [ ] Icon support
-- [ ] className override ishlaydi
-- [ ] Export qilindi (`index.ts`)
-- [ ] Manual test qilindi
-- [ ] Build qilib tekshirildi
-- [ ] Publish qilindi
+- [x] Props interface yozildi
+- [x] Variants (primary, secondary, outline)
+- [x] Sizes (sm, md, lg)
+- [x] Disabled state
+- [x] Loading state
+- [x] Icon support
+- [x] className override ishlaydi
+- [x] Export qilindi (`index.ts`)
+- [x] Manual test qilindi
+- [x] Build qilib tekshirildi
+- [x] Publish qilindi
 
 ---
 
 ### ⌨️ Input
 
-- [ ] Props interface
-- [ ] Sizes
-- [ ] Label support
-- [ ] Error state
-- [ ] Helper text
-- [ ] Disabled state
+- [x] Props interface
+- [x] Sizes
+- [x] Label support
+- [x] Error state
+- [x] Helper text
+- [x] Disabled state
 - [ ] className override
 - [ ] Export qilindi
 - [ ] Manual test
@@ -45,12 +44,12 @@
 
 ### ☑️ Checkbox
 
-- [ ] Base component
-- [ ] Checked / unchecked state
-- [ ] Disabled
-- [ ] Label support
-- [ ] Export
-- [ ] Test + Publish
+- [x] Base component
+- [x] Checked / unchecked state
+- [x] Disabled
+- [x] Label support
+- [x] Export
+- [x] Test + Publish
 
 ---
 
@@ -132,8 +131,8 @@
 
 ## 🧪 Phase 5 — Testing (keyin)
 
-- [ ] Vitest setup
-- [ ] Button test
+- [x] Vitest setup
+- [x] Button test
 - [ ] Input test
 - [ ] Core components coverage
 - [ ] Snapshot test (optional)
@@ -166,9 +165,3 @@ Har bir component uchun:
 - Har safar faqat 1 component ustida ishlash
 - Tugatmaguncha keyingisiga o‘tmaslik
 - Har component → build → test → publish
-
----
-
-# 🔥 Current Focus
-
-👉 Button componentdan boshlash

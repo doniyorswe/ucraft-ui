@@ -3,7 +3,7 @@ name: deploy landing after release
 on:
   push:
     tags:
-      - '*'
+      - 'v*'   # faqat version taglar uchun (ixtiyoriy)
 
 jobs:
   deploy:
@@ -18,5 +18,8 @@ jobs:
       - name: build
         run: npm run build:docs
 
-      - name: deploy to vercel
-        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy to Vercel
+        run: npx vercel deploy --prod \
+          --token=${{ secrets.VERCEL_TOKEN }} \
+          --yes \
+          --scope=${{ secrets.VERCEL_ORG_ID }}

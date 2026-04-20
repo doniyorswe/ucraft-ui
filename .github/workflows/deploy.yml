@@ -1,0 +1,22 @@
+name: deploy landing after release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install deps
+        run: npm install
+
+      - name: build
+        run: npm run build:docs
+
+      - name: deploy to vercel
+        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}

@@ -3,41 +3,41 @@
   "version": "0.1.2",
   "exports": {
     ".": {
-      "import": "./dist/src/index/index.es.js",
-      "require": "./dist/src/index/index.cjs",
-      "types": "./dist/src/index/index.d.ts"
+      "import": "./dist/index/index.es.js",
+      "require": "./dist/index/index.cjs",
+      "types": "./dist/index/index.d.ts"
     },
     "./components": {
-      "import": "./dist/src/components/index.es.js",
-      "require": "./dist/src/components/index.cjs",
-      "types": "./dist/src/components/index.d.ts"
+      "import": "./dist/components/index.es.js",
+      "require": "./dist/components/index.cjs",
+      "types": "./dist/components/index.d.ts"
     },
     "./components/Button": {
-      "import": "./dist/src/components/Button/index.es.js",
-      "require": "./dist/src/components/Button/index.cjs",
-      "types": "./dist/src/components/Button/index.d.ts"
+      "import": "./dist/components/Button/index.es.js",
+      "require": "./dist/components/Button/index.cjs",
+      "types": "./dist/components/Button/index.d.ts"
     },
     "./components/Input": {
-      "import": "./dist/src/components/Input/index.es.js",
-      "require": "./dist/src/components/Input/index.cjs",
-      "types": "./dist/src/components/Input/index.d.ts"
+      "import": "./dist/components/Input/index.es.js",
+      "require": "./dist/components/Input/index.cjs",
+      "types": "./dist/components/Input/index.d.ts"
     },
     "./components/Checkbox": {
-      "import": "./dist/src/components/Checkbox/index.es.js",
-      "require": "./dist/src/components/Checkbox/index.cjs",
-      "types": "./dist/src/components/Checkbox/index.d.ts"
+      "import": "./dist/components/Checkbox/index.es.js",
+      "require": "./dist/components/Checkbox/index.cjs",
+      "types": "./dist/components/Checkbox/index.d.ts"
     },
     "./utils": {
-      "import": "./dist/src/utils/index.es.js",
-      "require": "./dist/src/utils/index.cjs",
-      "types": "./dist/src/utils/index.d.ts"
+      "import": "./dist/utils/index.es.js",
+      "require": "./dist/utils/index.cjs",
+      "types": "./dist/utils/index.d.ts"
     },
     "./style.css": "./dist/src/index.css"
   },
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.es.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/index/index.cjs",
+  "module": "dist/index/index.es.js",
+  "types": "dist/index/index.d.ts",
   "files": [
     "dist"
   ],

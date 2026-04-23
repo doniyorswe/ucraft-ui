@@ -1,5 +1,5 @@
 import { Settings } from 'lucide-react';
-import { Button, Checkbox } from '../../index';
+import { Button, Checkbox } from '../../components';
 import { ComponentPreview } from '../components/ComponentPreview';
 import { useState } from 'react';
 
@@ -15,36 +15,36 @@ const ButtonDoc = () => {
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Variants</h2>
-        
-        <ComponentPreview 
+
+        <ComponentPreview
           title="Primary"
           code={`<Button variant="primary">Primary Button</Button>`}
         >
           <Button variant="primary">Primary Button</Button>
         </ComponentPreview>
 
-        <ComponentPreview 
+        <ComponentPreview
           title="Secondary"
           code={`<Button variant="secondary">Secondary Button</Button>`}
         >
           <Button variant="secondary">Secondary Button</Button>
         </ComponentPreview>
 
-        <ComponentPreview 
+        <ComponentPreview
           title="Danger"
           code={`<Button variant="danger">Danger Button</Button>`}
         >
           <Button variant="danger">Danger Button</Button>
         </ComponentPreview>
 
-        <ComponentPreview 
+        <ComponentPreview
           title="Outline"
           code={`<Button variant="outline">Outline Button</Button>`}
         >
           <Button variant="outline">Outline Button</Button>
         </ComponentPreview>
 
-        <ComponentPreview 
+        <ComponentPreview
           title="Icon"
           code={`
 <Button size="icon">
@@ -60,12 +60,12 @@ const ButtonDoc = () => {
         >
           <div className="flex gap-4 items-center">
             <Button size="icon">
-              <Settings/>
+              <Settings />
             </Button>
-            <Button leftIcon={<Settings/>}>
+            <Button leftIcon={<Settings />}>
               Left Icon
             </Button>
-            <Button rightIcon={<Settings/>}>
+            <Button rightIcon={<Settings />}>
               Right Icon
             </Button>
           </div>
@@ -74,7 +74,7 @@ const ButtonDoc = () => {
 
       <section className="mt-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Sizes</h2>
-        <ComponentPreview 
+        <ComponentPreview
           title="Sizes"
           code={`<div className="flex gap-4 items-center">
   <Button size="sm">Small</Button>

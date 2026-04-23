@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import { render, screen } from '@testing-library/react';
-import { Button } from './Button';
 import { Settings } from 'lucide-react';
+import Button from './Button';
 
 describe('Button', () => {
   it('should render Button component', () => {

@@ -1,4 +1,4 @@
-import { Checkbox } from '../../index';
+import { Checkbox } from '../../components';
 import { ComponentPreview } from '../components/ComponentPreview';
 
 const CheckboxDoc = () => {
@@ -11,7 +11,7 @@ const CheckboxDoc = () => {
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Usage</h2>
-        <ComponentPreview 
+        <ComponentPreview
           title="With Label"
           code={`<Checkbox label="Accept terms and conditions" />`}
         >
@@ -22,21 +22,21 @@ const CheckboxDoc = () => {
       <section className="mt-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Sizes</h2>
         <div className="space-y-6">
-          <ComponentPreview 
+          <ComponentPreview
             title="Small"
             code={`<Checkbox size="sm" label="Small checkbox" />`}
           >
             <Checkbox size="sm" label="Small checkbox" />
           </ComponentPreview>
-          
-          <ComponentPreview 
+
+          <ComponentPreview
             title="Medium (default)"
             code={`<Checkbox size="md" label="Medium checkbox" />`}
           >
             <Checkbox size="md" label="Medium checkbox" />
           </ComponentPreview>
 
-          <ComponentPreview 
+          <ComponentPreview
             title="Large"
             code={`<Checkbox size="lg" label="Large checkbox" />`}
           >
@@ -48,14 +48,14 @@ const CheckboxDoc = () => {
       <section className="mt-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">States</h2>
         <div className="space-y-6">
-          <ComponentPreview 
+          <ComponentPreview
             title="Default Checked"
             code={`<Checkbox label="Remember me" defaultChecked />`}
           >
             <Checkbox label="Remember me" defaultChecked />
           </ComponentPreview>
 
-          <ComponentPreview 
+          <ComponentPreview
             title="Disabled"
             code={`<Checkbox label="You cannot check this" disabled />`}
           >

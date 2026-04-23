@@ -1,3 +1,7 @@
-export * from './components/Button';
-export * from './components/Input';
-export * from './components/Checkbox';
+import './index.css';
+
+// Export components
+export * from './components';
+
+// Export utils
+export * from './utils';

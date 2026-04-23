@@ -1,4 +1,4 @@
-import { Input } from '../../index';
+import { Input } from '../../components';
 import { ComponentPreview } from '../components/ComponentPreview';
 
 const InputDoc = () => {

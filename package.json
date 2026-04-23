@@ -1,6 +1,39 @@
 {
   "name": "ucraft-ui",
   "version": "0.1.1",
+  "exports": {
+    ".": {
+      "import": "./dist/src/index/index.es.js",
+      "require": "./dist/src/index/index.cjs",
+      "types": "./dist/src/index/index.d.ts"
+    },
+    "./components": {
+      "import": "./dist/src/components/index.es.js",
+      "require": "./dist/src/components/index.cjs",
+      "types": "./dist/src/components/index.d.ts"
+    },
+    "./components/Button": {
+      "import": "./dist/src/components/Button/index.es.js",
+      "require": "./dist/src/components/Button/index.cjs",
+      "types": "./dist/src/components/Button/index.d.ts"
+    },
+    "./components/Input": {
+      "import": "./dist/src/components/Input/index.es.js",
+      "require": "./dist/src/components/Input/index.cjs",
+      "types": "./dist/src/components/Input/index.d.ts"
+    },
+    "./components/Checkbox": {
+      "import": "./dist/src/components/Checkbox/index.es.js",
+      "require": "./dist/src/components/Checkbox/index.cjs",
+      "types": "./dist/src/components/Checkbox/index.d.ts"
+    },
+    "./utils": {
+      "import": "./dist/src/utils/index.es.js",
+      "require": "./dist/src/utils/index.cjs",
+      "types": "./dist/src/utils/index.d.ts"
+    },
+    "./style.css": "./dist/src/index.css"
+  },
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.es.js",

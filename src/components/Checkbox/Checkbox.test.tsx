@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/vitest';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { Checkbox } from './Checkbox';
+import Checkbox from './Checkbox';
 
 describe('Checkbox', () => {
   it('should render Checkbox component', () => {

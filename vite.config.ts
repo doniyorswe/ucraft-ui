@@ -13,31 +13,73 @@ export default defineConfig(() => {
       tailwindcss(),
       !isDocs &&
         dts({
-          tsconfigPath: './tsconfig.app.json',
           insertTypesEntry: true,
         }),
     ].filter(Boolean),
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'src'),
+      },
+    },
     build: isDocs
       ? {
           outDir: 'dist-docs',
         }
       : {
           lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
+            entry: {
+              index: resolve(__dirname, 'src/index.ts'),
+              'components/Button': resolve(
+                __dirname,
+                'src/components/Button/index.ts'
+              ),
+              'components/Input': resolve(
+                __dirname,
+                'src/components/Input/index.ts'
+              ),
+              'components/Checkbox': resolve(
+                __dirname,
+                'src/components/Checkbox/index.ts'
+              ),
+              components: resolve(__dirname, 'src/components/index.ts'),
+              utils: resolve(__dirname, 'src/utils/index.ts'),
+            },
             name: 'UcraftUI',
-            fileName: (format) => `index.${format === 'es' ? 'es.js' : 'cjs'}`,
+            fileName: (format, entryName) =>
+              `${entryName}/index.${format === 'es' ? 'es.js' : 'cjs'}`,
             formats: ['es', 'cjs'],
           },
           rollupOptions: {
-            external: ['react', 'react-dom', 'react/jsx-runtime'],
+            external: [
+              'react',
+              'react-dom',
+              'next-intl',
+              'next',
+              'next/navigation',
+              'next-intl/server',
+              'tailwindcss',
+              'react-query',
+              'src/outof-build',
+              'react-hot-toast',
+              'react-redux',
+              'reselect',
+              'ucraft-ui',
+              // "jquery"
+            ],
             output: {
               globals: {
                 react: 'React',
                 'react-dom': 'ReactDOM',
                 'react/jsx-runtime': 'jsxRuntime',
               },
+              format: 'es',
+              preserveModules: true,
+              preserveModulesRoot: 'src',
             },
           },
+          cssCodeSplit: true,
+          outDir: './dist',
+          emptyOutDir: true,
         },
   };
 });

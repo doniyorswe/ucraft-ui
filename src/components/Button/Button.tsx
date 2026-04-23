@@ -1,13 +1,61 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+
+/**
+ * Button component props interface
+ * @interface ButtonProps
+ * @extends React.ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Button variant style
+   * @default 'primary'
+   */
   variant?: 'primary' | 'secondary' | 'outline' | 'danger';
+
+  /**
+   * Button size
+   * @default 'md'
+   */
   size?: 'sm' | 'md' | 'lg' | 'icon';
+
+  /**
+   * Show loading state with spinner
+   * @default false
+   */
   loading?: boolean;
+
+  /**
+   * Icon to display on the left side of button text
+   */
   leftIcon?: React.ReactNode;
+
+  /**
+   * Icon to display on the right side of button text
+   */
   rightIcon?: React.ReactNode;
+
+  /**
+   * Render as different HTML element or component
+   * @default 'button'
+   */
+  as?: React.ElementType;
 }
 
+/**
+ * Button component with multiple variants, sizes, and loading states
+ *
+ * @example
+ * ```tsx
+ * <Button variant="primary" size="md" onClick={() => console.log('clicked')}>
+ *   Click me
+ * </Button>
+ *
+ * <Button variant="secondary" size="sm" leftIcon={<Icon />}>With icon</Button>
+ *
+ * <Button variant="danger" loading>Loading...</Button>
+ * ```
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -18,6 +66,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       leftIcon,
       rightIcon,
+      as: Component = 'button',
+      type = 'button',
       ...props
     },
     ref
@@ -33,6 +83,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         'bg-destructive text-destructive-foreground hover:opacity-90 active:opacity-80 disabled:opacity-50',
     };
 
+    const isButton = Component === 'button';
+    const isDisabled = loading || disabled;
+
     const sizes = {
       sm: 'h-7 px-3 text-sm rounded',
       md: 'h-8 px-4 text-base rounded-md',
@@ -41,10 +94,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const baseClasses =
-      'inline-flex items-center justify-center transition-colors disabled:cursor-default [&_svg]:size-4';
+      'inline-flex items-center justify-center gap-1.5 transition-colors disabled:cursor-default [&_svg]:size-4';
 
     return (
-      <button
+      <Component
         ref={ref}
         className={twMerge(
           baseClasses,
@@ -53,10 +106,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         {...props}
-        disabled={loading || disabled}
+        {...(isButton ? { disabled: isDisabled } : {})}
+        onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+          if (isDisabled) {
+            e.preventDefault();
+            return;
+          }
+          props.onClick?.(e);
+        }}
       >
         {loading && (
-          <span className='mr-2'>
+          <span>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='24'
@@ -73,10 +133,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             </svg>
           </span>
         )}
-        {leftIcon && <span className='mr-1.5'>{leftIcon}</span>}
-        {props.children}
-        {rightIcon && <span className='ml-1.5'>{rightIcon}</span>}
-      </button>
+        {leftIcon && !loading && <span className='mt-0.5'>{leftIcon}</span>}
+        {loading && size === 'icon' ? null : props.children}
+        {rightIcon && !loading && <span className='mt-0.5'>{rightIcon}</span>}
+      </Component>
     );
   }
 );

@@ -21,9 +21,9 @@
 - [x] Icon support
 - [x] className override ishlaydi
 - [x] Export qilindi (`index.ts`)
-- [x] Manual test qilindi
-- [x] Build qilib tekshirildi
-- [x] Publish qilindi
+- [x] Manual test
+- [x] Vitest test
+- [x] Build + Publish
 
 ---
 
@@ -35,9 +35,10 @@
 - [x] Error state
 - [x] Helper text
 - [x] Disabled state
-- [ ] className override
-- [ ] Export qilindi
+- [x] className override
+- [x] Export qilindi
 - [ ] Manual test
+- [ ] Vitest test
 - [ ] Build + Publish
 
 ---
@@ -49,7 +50,9 @@
 - [x] Disabled
 - [x] Label support
 - [x] Export
-- [x] Test + Publish
+- [x] Manual test
+- [x] Vitest test
+- [x] Build + Publish
 
 ---
 

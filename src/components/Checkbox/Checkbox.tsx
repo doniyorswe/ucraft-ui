@@ -1,16 +1,61 @@
 import { forwardRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
+/**
+ * Checkbox component props interface
+ * @interface CheckboxProps
+ * @extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>
+ */
 export interface CheckboxProps extends Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   'size'
 > {
+  /**
+   * Callback function when checkbox state changes
+   * @param checked - Current checked state
+   */
   onCheckedChange?: (checked: boolean) => void;
+
+  /**
+   * Label text to display next to the checkbox
+   */
   label?: string;
+
+  /**
+   * Additional props for the wrapper label element
+   */
   wrapperProps?: React.LabelHTMLAttributes<HTMLLabelElement>;
+
+  /**
+   * Checkbox size variant
+   * @default 'md'
+   */
   size?: 'sm' | 'md' | 'lg';
 }
 
+/**
+ * Checkbox component with customizable sizes, labels, and state management
+ *
+ * Supports both controlled and uncontrolled usage patterns with smooth animations.
+ *
+ * @example
+ * ```tsx
+ * // Uncontrolled checkbox
+ * <Checkbox label="Accept terms" onCheckedChange={(checked) => console.log(checked)} />
+ *
+ * // Controlled checkbox
+ * const [checked, setChecked] = useState(false);
+ * <Checkbox
+ *   label="Accept terms"
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
+ *   size="lg"
+ * />
+ *
+ * // Default checked
+ * <Checkbox label="Subscribe" defaultChecked={true} />
+ * ```
+ */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {

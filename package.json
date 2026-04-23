@@ -3,8 +3,8 @@
   "version": "0.2.0",
   "exports": {
     ".": {
-      "import": "./dist/index/index.es.js",
-      "require": "./dist/index/index.cjs",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     },
     "./components": {
@@ -34,8 +34,8 @@
     },
     "./style.css": "./dist/src/index.css"
   },
-  "main": "dist/index/index.cjs",
-  "module": "dist/index/index.es.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"

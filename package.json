@@ -5,39 +5,38 @@
     ".": {
       "import": "./dist/index/index.es.js",
       "require": "./dist/index/index.cjs",
-      "types": "./dist/index/index.d.ts"
+      "types": "./dist/index.d.ts"
     },
     "./components": {
       "import": "./dist/components/index.es.js",
       "require": "./dist/components/index.cjs",
-      "types": "./dist/components/index.d.ts"
+      "types": "./dist/components.d.ts"
     },
     "./components/Button": {
       "import": "./dist/components/Button/index.es.js",
       "require": "./dist/components/Button/index.cjs",
-      "types": "./dist/components/Button/index.d.ts"
+      "types": "./dist/components/Button.d.ts"
     },
     "./components/Input": {
       "import": "./dist/components/Input/index.es.js",
       "require": "./dist/components/Input/index.cjs",
-      "types": "./dist/components/Input/index.d.ts"
+      "types": "./dist/components/Input.d.ts"
     },
     "./components/Checkbox": {
       "import": "./dist/components/Checkbox/index.es.js",
       "require": "./dist/components/Checkbox/index.cjs",
-      "types": "./dist/components/Checkbox/index.d.ts"
+      "types": "./dist/components/Checkbox.d.ts"
     },
     "./utils": {
       "import": "./dist/utils/index.es.js",
       "require": "./dist/utils/index.cjs",
-      "types": "./dist/utils/index.d.ts"
+      "types": "./dist/utils.d.ts"
     },
     "./style.css": "./dist/src/index.css"
   },
-  "type": "module",
   "main": "dist/index/index.cjs",
   "module": "dist/index/index.es.js",
-  "types": "dist/index/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],

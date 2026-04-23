@@ -1,6 +1,6 @@
 {
   "name": "ucraft-ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "exports": {
     ".": {
       "import": "./dist/index/index.es.js",
@@ -41,7 +41,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc --noEmit && vite build",
+    "build": "vite build && tsc --declaration --emitDeclarationOnly --outDir dist --jsx react-jsx --ignoreConfig src/index.types.ts && copy dist\\index.types.d.ts dist\\index.d.ts /y",
     "build:docs": "tsc --noEmit && cross-env BUILD_MODE=docs vite build",
     "lint": "eslint .",
     "preview": "vite preview",

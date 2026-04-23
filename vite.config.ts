@@ -14,6 +14,8 @@ export default defineConfig(() => {
       !isDocs &&
         dts({
           insertTypesEntry: true,
+          include: ['src/**/*'],
+          exclude: ['src/**/*.test.*', 'src/docs/**/*', 'src/**/*.css'],
         }),
     ].filter(Boolean),
     resolve: {
@@ -27,26 +29,9 @@ export default defineConfig(() => {
         }
       : {
           lib: {
-            entry: {
-              index: resolve(__dirname, 'src/index.ts'),
-              'components/Button': resolve(
-                __dirname,
-                'src/components/Button/index.ts'
-              ),
-              'components/Input': resolve(
-                __dirname,
-                'src/components/Input/index.ts'
-              ),
-              'components/Checkbox': resolve(
-                __dirname,
-                'src/components/Checkbox/index.ts'
-              ),
-              components: resolve(__dirname, 'src/components/index.ts'),
-              utils: resolve(__dirname, 'src/utils/index.ts'),
-            },
+            entry: resolve(__dirname, 'src/index.ts'),
             name: 'UcraftUI',
-            fileName: (format, entryName) =>
-              `${entryName}/index.${format === 'es' ? 'es.js' : 'cjs'}`,
+            fileName: (format) => `index.${format === 'es' ? 'es.js' : 'cjs'}`,
             formats: ['es', 'cjs'],
           },
           rollupOptions: {
@@ -73,8 +58,7 @@ export default defineConfig(() => {
                 'react/jsx-runtime': 'jsxRuntime',
               },
               format: 'es',
-              preserveModules: true,
-              preserveModulesRoot: 'src',
+              preserveModules: false,
             },
           },
           cssCodeSplit: true,

@@ -4,8 +4,9 @@ import tailwindcss from '@tailwindcss/vite';
 import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
 
-export default defineConfig(() => {
-  const isDocs = process.env.BUILD_MODE === 'docs';
+export default defineConfig(({ mode }) => {
+  const isDocs = mode === 'docs';
+  const isLib = mode === 'lib';
 
   return {
     plugins: [
@@ -27,43 +28,50 @@ export default defineConfig(() => {
       ? {
           outDir: 'dist-docs',
         }
-      : {
-          lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
-            name: 'UcraftUI',
-            fileName: (format) => `index.${format === 'es' ? 'es.js' : 'cjs'}`,
-            formats: ['es', 'cjs'],
-          },
-          rollupOptions: {
-            external: [
-              'react',
-              'react-dom',
-              'next-intl',
-              'next',
-              'next/navigation',
-              'next-intl/server',
-              'tailwindcss',
-              'react-query',
-              'src/outof-build',
-              'react-hot-toast',
-              'react-redux',
-              'reselect',
-              'ucraft-ui',
-              // "jquery"
-            ],
-            output: {
-              globals: {
-                react: 'React',
-                'react-dom': 'ReactDOM',
-                'react/jsx-runtime': 'jsxRuntime',
-              },
-              format: 'es',
-              preserveModules: false,
+      : isLib
+        ? {
+            lib: {
+              entry: resolve(__dirname, 'src/index.ts'),
+              name: 'UcraftUI',
+              fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
+              formats: ['es', 'cjs'],
             },
+            rollupOptions: {
+              external: ['react', 'react-dom'],
+              output: {
+                globals: {
+                  react: 'React',
+                  'react-dom': 'ReactDOM',
+                },
+                format: 'es',
+                preserveModules: false,
+              },
+            },
+            cssCodeSplit: false,
+            outDir: './dist',
+            emptyOutDir: true,
+          }
+        : {
+            lib: {
+              entry: resolve(__dirname, 'src/index.ts'),
+              name: 'UcraftUI',
+              fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
+              formats: ['es', 'cjs'],
+            },
+            rollupOptions: {
+              external: ['react', 'react-dom'],
+              output: {
+                globals: {
+                  react: 'React',
+                  'react-dom': 'ReactDOM',
+                },
+                format: 'es',
+                preserveModules: false,
+              },
+            },
+            cssCodeSplit: true,
+            outDir: './dist',
+            emptyOutDir: true,
           },
-          cssCodeSplit: true,
-          outDir: './dist',
-          emptyOutDir: true,
-        },
   };
 });

@@ -6,7 +6,6 @@ import { resolve } from 'path';
 
 export default defineConfig(({ mode }) => {
   const isDocs = mode === 'docs';
-  const isLib = mode === 'lib';
 
   return {
     plugins: [
@@ -14,6 +13,8 @@ export default defineConfig(({ mode }) => {
       tailwindcss(),
       !isDocs &&
         dts({
+          tsconfigPath: './tsconfig.lib.json',
+          rollupTypes: true,
           insertTypesEntry: true,
           include: ['src/**/*'],
           exclude: ['src/**/*.test.*', 'src/docs/**/*', 'src/**/*.css'],
@@ -28,50 +29,39 @@ export default defineConfig(({ mode }) => {
       ? {
           outDir: 'dist-docs',
         }
-      : isLib
-        ? {
-            lib: {
-              entry: resolve(__dirname, 'src/index.ts'),
-              name: 'UcraftUI',
-              fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
-              formats: ['es', 'cjs'],
-            },
-            rollupOptions: {
-              external: ['react', 'react-dom'],
-              output: {
-                globals: {
-                  react: 'React',
-                  'react-dom': 'ReactDOM',
-                },
-                format: 'es',
-                preserveModules: false,
-              },
-            },
-            cssCodeSplit: false,
-            outDir: './dist',
-            emptyOutDir: true,
-          }
-        : {
-            lib: {
-              entry: resolve(__dirname, 'src/index.ts'),
-              name: 'UcraftUI',
-              fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
-              formats: ['es', 'cjs'],
-            },
-            rollupOptions: {
-              external: ['react', 'react-dom'],
-              output: {
-                globals: {
-                  react: 'React',
-                  'react-dom': 'ReactDOM',
-                },
-                format: 'es',
-                preserveModules: false,
-              },
-            },
-            cssCodeSplit: true,
-            outDir: './dist',
-            emptyOutDir: true,
+      : {
+          lib: {
+            entry: resolve(__dirname, 'src/index.ts'),
+            name: 'UcraftUI',
+            fileName: (format) => `index.${format === 'esm' ? 'esm.js' : 'js'}`,
           },
+          rollupOptions: {
+            input: {
+              index: resolve(__dirname, 'src/index.ts'),
+            },
+            external: ['react', 'react-dom'],
+            output: [
+              {
+                globals: {
+                  react: 'React',
+                  'react-dom': 'ReactDOM',
+                },
+                format: 'esm',
+                preserveModules: false,
+              },
+              {
+                globals: {
+                  react: 'React',
+                  'react-dom': 'ReactDOM',
+                },
+                format: 'cjs',
+                preserveModules: false,
+              },
+            ],
+          },
+          cssCodeSplit: false,
+          outDir: './dist',
+          emptyOutDir: true,
+        },
   };
 });

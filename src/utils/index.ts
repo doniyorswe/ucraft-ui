@@ -1,1 +1,1 @@
-export * from './common';
+export { joinStrings, returnArray } from './common';

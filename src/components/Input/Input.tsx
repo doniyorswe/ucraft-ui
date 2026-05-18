@@ -32,7 +32,7 @@ export interface InputProps extends Omit<
  * />
  * ```
  */
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ size = 'md', ...props }, ref) => {
     const sizes = {
       sm: 'h-7 px-3 text-sm rounded',
@@ -54,5 +54,3 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = 'Input';
-
-export default Input;

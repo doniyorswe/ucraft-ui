@@ -3,45 +3,20 @@
   "version": "0.2.3",
   "exports": {
     ".": {
-      "import": "./dist/index.cjs",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
-    },
-    "./components": {
-      "import": "./dist/components/index.es.js",
-      "require": "./dist/components/index.cjs",
-      "types": "./dist/components.d.ts"
-    },
-    "./components/Button": {
-      "import": "./dist/components/Button/index.es.js",
-      "require": "./dist/components/Button/index.cjs",
-      "types": "./dist/components/Button.d.ts"
-    },
-    "./components/Input": {
-      "import": "./dist/components/Input/index.es.js",
-      "require": "./dist/components/Input/index.cjs",
-      "types": "./dist/components/Input.d.ts"
-    },
-    "./components/Checkbox": {
-      "import": "./dist/components/Checkbox/index.es.js",
-      "require": "./dist/components/Checkbox/index.cjs",
-      "types": "./dist/components/Checkbox.d.ts"
-    },
-    "./utils": {
-      "import": "./dist/utils/index.es.js",
-      "require": "./dist/utils/index.cjs",
-      "types": "./dist/utils.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
     },
     "./style.css": "./dist/src/index.css"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.cjs",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc --declaration --emitDeclarationOnly --outDir dist --jsx react-jsx --ignoreConfig src/index.types.ts && vite build --mode lib && copy dist\\index.types.d.ts dist\\index.d.ts /y",
+    "build": "tsc && vite build --mode lib",
     "build:docs": "tsc --noEmit && cross-env BUILD_MODE=docs vite build",
     "lint": "eslint .",
     "preview": "vite preview",

@@ -56,7 +56,7 @@ export interface CheckboxProps extends Omit<
  * <Checkbox label="Subscribe" defaultChecked={true} />
  * ```
  */
-const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       onCheckedChange,
@@ -152,5 +152,3 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 );
 
 Checkbox.displayName = 'Checkbox';
-
-export default Checkbox;

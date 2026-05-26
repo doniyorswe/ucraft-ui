@@ -4,19 +4,21 @@ import tailwindcss from '@tailwindcss/vite';
 import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const isLibBuild = mode === 'lib';
   return {
     plugins: [
       react(),
       tailwindcss(),
-      dts({
-        tsconfigPath: './tsconfig.lib.json',
-        rollupTypes: true,
-        insertTypesEntry: true,
-        include: ['src/**/*'],
-        exclude: ['src/**/*.test.*', 'src/docs/**/*', 'src/**/*.css'],
-      }),
-    ],
+      isLibBuild &&
+        dts({
+          tsconfigPath: './tsconfig.lib.json',
+          rollupTypes: true,
+          insertTypesEntry: true,
+          include: ['src/**/*'],
+          exclude: ['src/**/*.test.*', 'src/docs/**/*', 'src/**/*.css'],
+        }),
+    ].filter(Boolean),
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),

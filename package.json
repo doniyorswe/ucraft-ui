@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && vite build --mode lib",
+    "build": "tsc && cross-env BUILD_MODE=lib vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "dev": "vite",

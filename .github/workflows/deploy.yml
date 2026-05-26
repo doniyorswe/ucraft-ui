@@ -3,7 +3,7 @@ name: deploy storybook after release
 on:
   push:
     tags:
-      - 'v*' # only runs on version tags
+      - 'v*'
 
 jobs:
   deploy:
@@ -13,10 +13,13 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: install deps
-        run: npm install
+        run: npm ci
 
       - name: build storybook
         run: npm run build-storybook
 
+      - name: Pull Vercel config
+        run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Deploy to Vercel
-        run: npx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --yes --scope=${{ secrets.VERCEL_ORG_ID }}
+        run: npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
